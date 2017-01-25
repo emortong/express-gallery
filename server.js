@@ -9,11 +9,7 @@ const passport = require('passport');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 var methodOverride = require('method-override')
-const gallery = require('./routes/gallery');
-const user = require('./routes/user');
-const login = require('./routes/login');
 const CONFIG = require('./config/config.json');
-const logout = require('./routes/logout');
 const register = require('./routes/register');
 const home = require('./routes/home');
 const cache = require('./middleware/cache')
@@ -98,10 +94,6 @@ passport.deserializeUser((user, done) => {
 app.use(cache.init())
 app.use('/', home);
 app.use('/projects', projects)
-app.use('/gallery', gallery);
-app.use('/user', user);
-app.use('/login', login);
-app.use('/logout', logout);
 app.use('/register', register);
 
 

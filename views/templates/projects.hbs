@@ -1,7 +1,7 @@
 <h1>Project Gallery</h1>
 
 {{#each project}}
-<a href="/gallery/{{this.id}}">
+<a href="/projects/{{this.id}}">
   <div class="projects">
     <p>link: {{this.link}}</p>
     <p>description: {{this.description}}</p>
@@ -10,7 +10,7 @@
 {{/each}}
 
 <div>
-  <input type=button class="hvr-wobble-horizontal" onClick="location.href='/gallery/new'" value='New Project'>
+  <input type=button class="hvr-wobble-horizontal" onClick="location.href='/projects/new'" value='New Project'>
 </div>
 
 <a href="/logout"><button>Logout</button></a>

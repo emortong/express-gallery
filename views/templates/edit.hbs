@@ -1,6 +1,6 @@
 <h1>Edit Project</h1>
 
-  <form name="form" action="/gallery/{{project.id}}" method="POST" enctype="application/x-www-form-urlencoded">
+  <form name="form" action="/projects/{{project.id}}" method="POST" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="_method" value="PUT">
     Link: <br>
     <input type="text" name="link" value="{{project.link}}" class="box"><br>
