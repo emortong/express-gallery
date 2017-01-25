@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require('../models');
 const Project = db.Project;
 const bodyParser = require('body-parser');
+const cache = require('../middleware/cache')
+
 
 const isAuthenticated = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -40,7 +42,10 @@ const isValidRoute = (req, res, next) => {
 
 router.route('/new')
   .get(isAuthenticated,(req, res) => {
-      res.render('templates/new')
+      res.render('templates/new', (err, html) => {
+        cache.cacheMiss(req.originalUrl, html)
+        res.send(html);
+      })
     })
 
 router.route('/:id')
@@ -52,7 +57,10 @@ router.route('/:id')
     })
     .then( project => {
       project = project[0].dataValues;
-      res.render('templates/project', {project});
+      res.render('templates/project', {project}, (err, html) => {
+        cache.cacheMiss(req.originalUrl, html)
+        res.send(html);
+      });
     })
 
   })
@@ -88,14 +96,15 @@ router.route('/:id')
   })
 
 router.route('/')
-  .post(isValidRoute,isObjEmpty, isAuthenticated, (req,res) => {
+  .post(isObjEmpty, isAuthenticated, (req,res) => {
     Project.create({
       link: req.body.link,
       description: req.body.description,
       AuthorId: req.body.authorId
     })
     .then( project => {
-      res.redirect('/')
+      console.log('hello');
+      res.redirect('/projects')
     })
     .catch((err) => {
       console.log(err);
@@ -111,7 +120,10 @@ router.route('/:id/edit')
     })
     .then( project => {
       project = project[0].dataValues;
-      res.render('templates/edit', {project})
+      res.render('templates/edit', {project}, (err, html) => {
+        cache.cacheMiss(req.originalUrl, html)
+        res.send(html);
+      })
     })
     .catch((err) => {
       console.log(err);

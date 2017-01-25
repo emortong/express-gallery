@@ -18,6 +18,18 @@ input {
   font-family: Times;
 }
 
+.home {
+  background: url(/assets/mainPage2.png) 100%;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+
 .wrap {
   min-height: calc(100vh - 104px);
 }

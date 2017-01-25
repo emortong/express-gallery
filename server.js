@@ -4,9 +4,10 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt')
 const saltRounds = 10;
-const home = require('./routes/home');
+const projects = require('./routes/projects');
 const passport = require('passport');
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 var methodOverride = require('method-override')
 const gallery = require('./routes/gallery');
 const user = require('./routes/user');
@@ -14,6 +15,8 @@ const login = require('./routes/login');
 const CONFIG = require('./config/config.json');
 const logout = require('./routes/logout');
 const register = require('./routes/register');
+const home = require('./routes/home');
+const cache = require('./middleware/cache')
 
 const db = require('./models');
 const User = db.User;
@@ -42,6 +45,7 @@ app.engine('.hbs', exphbs({
 const LocalStrategy = require('passport-local').Strategy;
 
 const sess = {
+  store: new RedisStore(),
   secret: CONFIG.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
@@ -91,7 +95,9 @@ passport.deserializeUser((user, done) => {
   return done(null, user);
 });
 
+app.use(cache.init())
 app.use('/', home);
+app.use('/projects', projects)
 app.use('/gallery', gallery);
 app.use('/user', user);
 app.use('/login', login);

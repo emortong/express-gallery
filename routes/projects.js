@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
-const passport = require('passport');
+const db = require('../models');
+const Project = db.Project;
 const cache = require('../middleware/cache')
 
 router.route('/')
   .get((req, res) => {
-    res.render('templates/register', (err, html) => {
+    Project.findAll()
+      .then( project => {
+        res.render('templates/projects', {project}, (err, html) => {
         cache.cacheMiss(req.originalUrl, html)
         res.send(html);
       });
+      })
   })
+
 
 
 module.exports = router;
