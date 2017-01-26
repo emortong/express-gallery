@@ -1,21 +1,14 @@
 body {
   background: white;
-  text-align: center;
-  margin: auto; }
+  font-family: Open Sans;
+  font-style: light;
+  color: black; }
 
 a {
   text-decoration: none; }
 
-form {
-  font-size: 20px; }
-
-input {
-  font-size: 15px;
-  text-align: center;
-  font-family: Times; }
-
 .home {
-  background: url(/assets/mainPage2.png) 100%;
+  background: url(/assets/background.png) 100%;
   background-size: cover;
   bottom: 0;
   left: 0;
@@ -24,99 +17,93 @@ input {
   top: 0;
   z-index: 3; }
 
-.wrap {
-  min-height: calc(100vh - 104px); }
+.menu {
+  width: 250px;
+  height: 400px;
+  margin-top: 2%;
+  margin-left: 2%;
+  position: relative;
+  z-index: 4; }
+
+.home-icon {
+  position: fixed;
+  top: 5%;
+  left: 7%;
+  width: 45px;
+  height: 25px;
+  border: solid black 2px;
+  text-align: center;
+  transition-property: border;
+  transition-duration: 1s; }
+  .home-icon p {
+    margin-top: 30%;
+    width: 100%;
+    opacity: 0;
+    font-size: 0px;
+    transition-property: opacity, font-size, margin-top;
+    transition-duration: 1s; }
+
+.home-icon:hover {
+  border: 0px; }
+  .home-icon:hover p {
+    opacity: 1;
+    font-size: 15px;
+    margin-top: 2px; }
+
+.menu-icon {
+  width: 45px;
+  height: 25px;
+  opacity: 1;
+  border: solid white 2px;
+  position: absolute;
+  top: 4%;
+  left: 12%;
+  transition-property: width, height;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  text-align: center; }
+  .menu-icon p {
+    margin-top: 2px;
+    width: 100%;
+    transition-property: opacity;
+    transition-duration: 1s; }
+
+.menu-items {
+  position: absolute;
+  top: 9%;
+  left: 31%;
+  opacity: 0;
+  transition-property: opacity, left;
+  transition-duration: .3s;
+  transition-timing-function: ease; }
+  .menu-items p {
+    color: white; }
+
+.menu-icon:hover {
+  width: 150px;
+  height: 230px;
+  transition-duration: 2s; }
+  .menu-icon:hover .menu-items {
+    opacity: 1;
+    left: 31%;
+    transition-delay: 0.5s;
+    transition-duration: 0.5s; }
+  .menu-icon:hover .menu-items p:hover {
+    color: #9a552d;
+    text-decoration: underline; }
+
+#intro {
+  position: fixed;
+  top: 270px;
+  left: 450px; }
+
+#workTitle {
+  color: black;
+  font-size: 55px;
+  font-style: bold;
+  margin-top: 8%;
+  margin-left: 7%;
+  letter-spacing: 5px; }
 
 .container {
-  text-align: center;
-  margin: auto;
   width: 90%; }
-
-.projects {
-  display: inline-block;
-  border: solid black 3px;
-  width: 200px;
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  margin: auto;
-  margin-bottom: 10px;
-  padding: 10px; }
-
-.box {
-  width: 200px;
-  height: 40px;
-  border: solid black 3px;
-  margin: 8px 0; }
-
-#submit {
-  width: 208px;
-  height: 40px;
-  border: solid black 3px;
-  margin: 10px 0; }
-
-#header {
-  font-size: 50px;
-  background-color: black;
-  color: white;
-  margin-top: 0; }
-
-#header h1 {
-  margin: 0;
-  color: white; }
-
-#header h1:hover {
-  color: purple; }
-
-#footer {
-  background-color: buttonface;
-  padding: 8px;
-  margin-top: 25px;
-  font-size: 20px; }
-
-#notFound {
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 200px;
-  margin-top: 30px; }
-
-h1 {
-  margin: 0; }
-
-@keyframes hvr-wobble-horizontal {
-  16.65% {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px); }
-  33.3% {
-    -webkit-transform: translateX(-6px);
-    transform: translateX(-6px); }
-  49.95% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px); }
-  66.6% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px); }
-  83.25% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px); }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0); } }
-
-.hvr-wobble-horizontal {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent; }
-
-.hvr-wobble-horizontal:hover, .hvr-wobble-horizontal:focus, .hvr-wobble-horizontal:active {
-  -webkit-animation-name: hvr-wobble-horizontal;
-  animation-name: hvr-wobble-horizontal;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1; }
