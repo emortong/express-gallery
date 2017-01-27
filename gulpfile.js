@@ -6,7 +6,6 @@ const nodemon      = require('gulp-nodemon');
 const browserSync  = require('browser-sync');
 const reload       = browserSync.reload;
 const pkg          = require('./package.json');
-// const concat       = require('gulp-concat');
 const childProcess = require('child_process');
 
 gulp.task('nodemon', function (cb) {
@@ -26,7 +25,7 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    proxy : 'http://localhost:3001',
+    proxy : 'http://localhost:3033',
     files : ['public/**/*.*'],
     browser : 'google chrome',
     port : 7000
