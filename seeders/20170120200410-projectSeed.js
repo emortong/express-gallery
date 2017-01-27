@@ -3,8 +3,8 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Projects', [{
-      link: 'www.loremipsum.com',
-      description: 'Qui officia facere id magnam. Sint placeat quia eligendi et laborum earum natus labore. Ut qui id qui cumque fugit animi sit. Et architecto consequatur ut.',
+      link: 'www.myfinalp.com',
+      description: 'My final project for devleague was a lorem ipsum noseque',
       createdAt : new Date(),
       updatedAt : new Date(),
       UserId : 1
@@ -13,7 +13,7 @@ module.exports = {
 
   down: function (queryInterface, Sequelize) {
     return queryInterface.bulkDelete('Projects', [{
-      link: 'www.loremipsum.com'
+      link: 'www.myfinalp.com'
     }]);
 
   }

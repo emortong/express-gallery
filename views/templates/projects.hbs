@@ -15,13 +15,35 @@
 
 <a href="/logout"><button>Logout</button></a> --}}
 
-<div class="home">
+{{!-- <div class="home">
 
   <div class="home-icon">
     <a href="/"><p>home</p></a>
+  </div> --}}
+
+  <div class="nav-icon">
+    <div class="nav-items">
+        <a href="/"><span>home</span></a>
+        <a href="/"><span> about </span></a>
+        <a href="/"><span> contact </span></a>
+        <a href="/"><span> misc </span></a>
+    </div>
   </div>
 
   <h2 id="workTitle">Work,</h2>
+
+  <div class="container">
+    {{#each project}}
+    <a href="/projects/{{this.id}}">
+      <div class="projects">
+        <img src="assets/nyLibrary.jpg" alt="ny-library">
+        <p>{{this.link}}</p>
+        <p>{{this.description}}</p>
+      </div>
+    </a>
+  {{/each}}
+  </div>
+
 </div>
 
 

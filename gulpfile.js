@@ -1,29 +1,58 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var connect = require('gulp-connect');
+'use strict';
 
-gulp.task('connect', function(){
-  connect.server({
-    root: 'public',
-    livereload: true,
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
+const nodemon      = require('gulp-nodemon');
+const browserSync  = require('browser-sync');
+const reload       = browserSync.reload;
+const pkg          = require('./package.json');
+// const concat       = require('gulp-concat');
+const childProcess = require('child_process');
+
+gulp.task('nodemon', function (cb) {
+
+  var started = false;
+
+  return nodemon({
+    script : 'index.js',
+    nodeArgs : ['--debug']
+  }).on('start', function () {
+    if (!started) {
+      cb();
+      started = true;
+    }
+  });
+})
+
+gulp.task('browser-sync', ['nodemon'], function() {
+  browserSync.init(null, {
+    proxy : 'http://localhost:3001',
+    files : ['public/**/*.*'],
+    browser : 'google chrome',
+    port : 7000
   });
 });
 
-// keeps gulp from crashing for scss errors
 gulp.task('sass', function () {
   return gulp.src('./sass/*.scss')
       .pipe(sass({ errLogToConsole: true }))
       .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('livereload', function (){
-  gulp.src('./public/**/*')
-  .pipe(connect.reload());
-});
-
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
-  gulp.watch('./public/**/*', ['livereload']);
+  gulp.watch('./public/**/*.*').on('change', reload);
 });
 
-gulp.task('default', ['connect', 'watch', 'sass']);
+gulp.task('redis-server', function() {
+  childProcess.exec('redis-server', function(err, stdout, stderr) {
+    console.log(stdout);
+    if (err !== null) {
+      console.log('exec error: ' + err);
+    }
+  });
+});
+
+gulp.task('default', ['dev']);
+
+gulp.task('dev', ['redis-server', 'watch', 'sass', 'browser-sync']);

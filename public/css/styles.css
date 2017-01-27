@@ -1,5 +1,4 @@
 body {
-  background: white;
   font-family: Open Sans;
   font-style: light;
   color: black; }
@@ -7,48 +6,15 @@ body {
 a {
   text-decoration: none; }
 
-.home {
+body {
   background: url(/assets/background.png) 100%;
   background-size: cover;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 3; }
+  height: 100vh; }
 
-.menu {
-  width: 250px;
-  height: 400px;
-  margin-top: 2%;
-  margin-left: 2%;
-  position: relative;
-  z-index: 4; }
-
-.home-icon {
-  position: fixed;
-  top: 5%;
-  left: 7%;
-  width: 45px;
-  height: 25px;
-  border: solid black 2px;
+.container {
+  width: 90%;
   text-align: center;
-  transition-property: border;
-  transition-duration: 1s; }
-  .home-icon p {
-    margin-top: 30%;
-    width: 100%;
-    opacity: 0;
-    font-size: 0px;
-    transition-property: opacity, font-size, margin-top;
-    transition-duration: 1s; }
-
-.home-icon:hover {
-  border: 0px; }
-  .home-icon:hover p {
-    opacity: 1;
-    font-size: 15px;
-    margin-top: 2px; }
+  margin: auto; }
 
 .menu-icon {
   width: 45px;
@@ -56,8 +22,8 @@ a {
   opacity: 1;
   border: solid white 2px;
   position: absolute;
-  top: 4%;
-  left: 12%;
+  top: 10%;
+  left: 6%;
   transition-property: width, height;
   transition-duration: 2s;
   transition-timing-function: ease;
@@ -92,6 +58,47 @@ a {
     color: #9a552d;
     text-decoration: underline; }
 
+.nav-icon {
+  width: 45px;
+  height: 25px;
+  opacity: 1;
+  border: solid white 2px;
+  position: fixed;
+  top: 10%;
+  left: 6%;
+  transition-property: width, height;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  text-align: center; }
+  .nav-icon.work-nav {
+    transition-delay: .4s; }
+  .nav-icon .nav-items span {
+    color: white;
+    margin-top: 2px;
+    padding: 3.5%;
+    opacity: 0;
+    width: 100%; }
+
+.nav-icon:hover {
+  width: 300px;
+  transition-duration: 2s; }
+  .nav-icon:hover.work-nav {
+    width: 350px;
+    transition-duration: 1.5s; }
+    .nav-icon:hover.work-nav span {
+      opacity: 1;
+      transition-delay: 1.4s; }
+  .nav-icon:hover .nav-items {
+    left: 31%; }
+  .nav-icon:hover span {
+    opacity: 1;
+    transition-property: opacity;
+    transition-delay: 1s;
+    transition-duration: 1s; }
+  .nav-icon:hover .nav-items span:hover {
+    color: #9a552d;
+    text-decoration: underline; }
+
 #intro {
   position: fixed;
   top: 270px;
@@ -99,11 +106,51 @@ a {
 
 #workTitle {
   color: black;
-  font-size: 55px;
-  font-style: bold;
-  margin-top: 8%;
-  margin-left: 7%;
+  font-size: 75px;
+  font-style: bolder;
+  margin-top: 14%;
+  margin-left: 8%;
   letter-spacing: 5px; }
 
-.container {
-  width: 90%; }
+.projects {
+  display: inline-block;
+  border: solid white 3px;
+  width: 280px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin: auto;
+  margin: 15px 15px;
+  padding: 5px;
+  z-index: 6; }
+  .projects img {
+    width: 100%; }
+
+#project {
+  width: 80%;
+  text-align: center;
+  margin: auto; }
+  #project img {
+    margin-top: 10%;
+    width: 90%; }
+  #project #desc {
+    margin-top: 50%;
+    font-size: 47px;
+    font-style: bold;
+    font-weight: bolder;
+    animation-name: slidedown;
+    animation-duration: 1.2s;
+    animation-timing-function: ease; }
+  #project hr {
+    width: 70px;
+    height: 10px;
+    background-color: black;
+    border: none; }
+
+@keyframes slidedown {
+  from {
+    margin-top: 30%;
+    opacity: 0; }
+  to {
+    margin-top: 50%;
+    opacity: 1; } }
