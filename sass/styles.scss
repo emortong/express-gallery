@@ -49,12 +49,6 @@ body {
   transition-duration: 2s;
   transition-timing-function: ease;
   text-align: center;
-  p{
-    margin-top: 2px;
-    width: 100%;
-    transition-property: opacity;
-    transition-duration: 1s;
-  }
 }
 
 .menu-items {
@@ -65,9 +59,15 @@ body {
   transition-property: opacity, left;
   transition-duration: .3s;
   transition-timing-function: ease;
-  p{
+
+  p {
+    margin-top: 2px;
+    width: 100%;
+    transition-property: opacity;
+    transition-duration: 1s;
     color: white;
   }
+
 }
 
 .menu-icon:hover {
@@ -83,7 +83,8 @@ body {
   }
 
   .menu-items p:hover {
-    color: #9a552d;
+    // color: #9a552d;
+    color: gray;
     text-decoration: underline;
   }
 }
@@ -139,7 +140,8 @@ body {
     transition-duration: 1s;
   }
   .nav-items span:hover {
-    color: #9a552d;
+    // color: #9a552d;
+    color: gray;
     text-decoration: underline;
   }
 }
@@ -148,19 +150,41 @@ body {
 
 #intro {
   position: fixed;
-  top: 270px;
-  left: 450px;
+  top: 35%;
+  left: 41%;
+  font-size: 110px;
+  letter-spacing: 5px;
+  font-style: bolder;
+  // color: #9a552d;
+  color: gray;
+  animation-name: slideup;
+  animation-duration: 1.4s;
+  animation-timing-function: ease;
+}
+
+
+
+
+@keyframes slideup {
+  from {top: 48%; opacity:0;}
+  to {top: 35%; opacity: 1;}
 }
 
 #workTitle {
-    // color: #9a5532;
-    color: black;
+    color: white;
     font-size: 75px;
     font-style: bolder;
     margin-top: 14%;
     margin-left: 8%;
     letter-spacing: 5px;
+    animation-name: slideupWork;
+    animation-duration: 1.4s;
+     animation-timing-function: ease;
+}
 
+@keyframes slideupWork {
+  from {margin-top: 18%; opacity:0;}
+  to {margin-top: 14%; opacity: 1;}
 }
 
 
@@ -187,11 +211,14 @@ body {
   margin: auto;
 
   img {
-    margin-top: 10%;
     width: 90%;
+    margin-top: 10%;
+    animation-name: pushup;
+    animation-duration: 2s;
   }
 
   #desc {
+    color: white;
     margin-top: 50%;
     font-size: 47px;
     font-style: bold;
@@ -202,17 +229,23 @@ body {
   }
 
   hr {
-    width: 70px;
-    height: 10px;
-    background-color: black;
+    width: 60px;
+    height: 13px;
+    background-color: white;
     border: none;
   }
 }
 
 @keyframes slidedown {
-  from {margin-top: 30%; opacity:0;}
+  from {margin-top: 38%; opacity:0;}
   to {margin-top: 50%; opacity: 1;}
 }
+
+@keyframes pushup {
+  from {margin-top: 50%; opacity:0;}
+  to {margin-top: 10%; opacity: 1;}
+}
+
 
 
 // .box {

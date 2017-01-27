@@ -28,11 +28,6 @@ body {
   transition-duration: 2s;
   transition-timing-function: ease;
   text-align: center; }
-  .menu-icon p {
-    margin-top: 2px;
-    width: 100%;
-    transition-property: opacity;
-    transition-duration: 1s; }
 
 .menu-items {
   position: absolute;
@@ -43,6 +38,10 @@ body {
   transition-duration: .3s;
   transition-timing-function: ease; }
   .menu-items p {
+    margin-top: 2px;
+    width: 100%;
+    transition-property: opacity;
+    transition-duration: 1s;
     color: white; }
 
 .menu-icon:hover {
@@ -55,7 +54,7 @@ body {
     transition-delay: 0.5s;
     transition-duration: 0.5s; }
   .menu-icon:hover .menu-items p:hover {
-    color: #9a552d;
+    color: gray;
     text-decoration: underline; }
 
 .nav-icon {
@@ -96,21 +95,47 @@ body {
     transition-delay: 1s;
     transition-duration: 1s; }
   .nav-icon:hover .nav-items span:hover {
-    color: #9a552d;
+    color: gray;
     text-decoration: underline; }
 
 #intro {
   position: fixed;
-  top: 270px;
-  left: 450px; }
+  top: 35%;
+  left: 41%;
+  font-size: 110px;
+  letter-spacing: 5px;
+  font-style: bolder;
+  color: gray;
+  animation-name: slideup;
+  animation-duration: 1.4s;
+  animation-timing-function: ease; }
+
+@keyframes slideup {
+  from {
+    top: 48%;
+    opacity: 0; }
+  to {
+    top: 35%;
+    opacity: 1; } }
 
 #workTitle {
-  color: black;
+  color: white;
   font-size: 75px;
   font-style: bolder;
   margin-top: 14%;
   margin-left: 8%;
-  letter-spacing: 5px; }
+  letter-spacing: 5px;
+  animation-name: slideupWork;
+  animation-duration: 1.4s;
+  animation-timing-function: ease; }
+
+@keyframes slideupWork {
+  from {
+    margin-top: 18%;
+    opacity: 0; }
+  to {
+    margin-top: 14%;
+    opacity: 1; } }
 
 .projects {
   display: inline-block;
@@ -131,9 +156,12 @@ body {
   text-align: center;
   margin: auto; }
   #project img {
+    width: 90%;
     margin-top: 10%;
-    width: 90%; }
+    animation-name: pushup;
+    animation-duration: 2s; }
   #project #desc {
+    color: white;
     margin-top: 50%;
     font-size: 47px;
     font-style: bold;
@@ -142,15 +170,23 @@ body {
     animation-duration: 1.2s;
     animation-timing-function: ease; }
   #project hr {
-    width: 70px;
-    height: 10px;
-    background-color: black;
+    width: 60px;
+    height: 13px;
+    background-color: white;
     border: none; }
 
 @keyframes slidedown {
   from {
-    margin-top: 30%;
+    margin-top: 38%;
     opacity: 0; }
   to {
     margin-top: 50%;
+    opacity: 1; } }
+
+@keyframes pushup {
+  from {
+    margin-top: 50%;
+    opacity: 0; }
+  to {
+    margin-top: 10%;
     opacity: 1; } }
