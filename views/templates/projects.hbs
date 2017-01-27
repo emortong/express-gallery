@@ -1,49 +1,31 @@
-{{!--
-
-{{#each project}}
-<a href="/projects/{{this.id}}">
-  <div class="projects">
-    <p>link: {{this.link}}</p>
-    <p>description: {{this.description}}</p>
+<div class="nav-icon">
+  <div class="nav-items">
+      <a href="/"><span>home</span></a>
+      <a href="/"><span> about </span></a>
+      <a href="/"><span> contact </span></a>
+      <a href="/"><span> misc </span></a>
   </div>
-</a>
-{{/each}}
-
-<div>
-  <input type=button class="hvr-wobble-horizontal" onClick="location.href='/projects/new'" value='New Project'>
 </div>
 
-<a href="/logout"><button>Logout</button></a> --}}
+<h2 id="workTitle">Work,</h2>
 
-{{!-- <div class="home">
-
-  <div class="home-icon">
-    <a href="/"><p>home</p></a>
-  </div> --}}
-
-  <div class="nav-icon">
-    <div class="nav-items">
-        <a href="/"><span>home</span></a>
-        <a href="/"><span> about </span></a>
-        <a href="/"><span> contact </span></a>
-        <a href="/"><span> misc </span></a>
+<div class="container">
+  {{#each project}}
+  <a href="/projects/{{this.id}}">
+    <div class="projects">
+      <img src="assets/nyLibrary.jpg" alt="ny-library">
+      <p>{{this.link}}</p>
+      <p>{{this.description}}</p>
     </div>
-  </div>
-
-  <h2 id="workTitle">Work,</h2>
-
-  <div class="container">
-    {{#each project}}
-    <a href="/projects/{{this.id}}">
-      <div class="projects">
-        <img src="assets/nyLibrary.jpg" alt="ny-library">
-        <p>{{this.link}}</p>
-        <p>{{this.description}}</p>
-      </div>
-    </a>
-  {{/each}}
-  </div>
-
+  </a>
+{{/each}}
 </div>
+
+{{#if user}}
+  <div>
+    <a href="/projects/new" class="back"><p>New</p></a>
+  </div>
+{{/if}}
+
 
 

@@ -14,7 +14,7 @@ router.route('/')
       }
       bcrypt.hash(req.body.password, salt, (err, hash) => {
         console.log('hash: ', hash);
-        User.create({ username: req.body.username, password: hash})
+        User.create({ username: req.body.username, password: hash, isAdmin: false})
         .then(function (user) {
           res.redirect('/');
         });

@@ -4,6 +4,7 @@ const db = require('../models');
 const Project = db.Project;
 const cache = require('../middleware/cache')
 
+
 const isAuthenticated = (req, res, next) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/login');
@@ -26,7 +27,6 @@ const isValidRoute = (req, res, next) => {
     }
   })
   .then( project => {
-    console.log(project);
     if(project.length !== 0){
       next();
     } else {
@@ -42,7 +42,7 @@ router.route('/')
   .get((req, res) => {
     Project.findAll()
       .then( project => {
-        res.render('templates/projects', {project}, (err, html) => {
+        res.render('templates/projects', {project, user: req.user[0].isAdmin}, (err, html) => {
         cache.cacheMiss(req.originalUrl, html)
         res.send(html);
       });
