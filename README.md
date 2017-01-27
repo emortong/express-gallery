@@ -7,4 +7,4 @@
 - Connect to `gallery`
 - Run `gulp`
 - Run `sequelize db:seed:all`
-- Register or Login as admin using `username: admin` and `password: 1234`
+- Register with a new username and password or Login as admin using `username: emortong` and `password: secret`

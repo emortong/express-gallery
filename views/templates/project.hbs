@@ -17,11 +17,13 @@
   <p>{{project.link}}</p>
 </div>
 
-<div>
-  <input type=button onClick="location.href='/projects/{{project.id}}/edit'" value='Edit Project'>
+<div class="btn back">
+  <a href="/projects"><p>⟵</p></a>
 </div>
 
-<div>
-  <a href="/projects" class="back">Back</a>
-</div>
+{{#if user}}
+  <div class="btn edit">
+    <a href="/projects/{{project.id}}/edit"><p>Edit</p></a>
+  </div>
+{{/if}}
 

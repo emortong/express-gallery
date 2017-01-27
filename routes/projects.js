@@ -79,7 +79,7 @@ router.route('/:id')
     })
     .then( project => {
       project = project[0].dataValues;
-      res.render('templates/project', {project}, (err, html) => {
+      res.render('templates/project', {project, user: req.user[0].isAdmin}, (err, html) => {
         cache.cacheMiss(req.originalUrl, html)
         res.send(html);
       });

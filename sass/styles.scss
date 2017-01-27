@@ -246,64 +246,36 @@ body {
   to {margin-top: 10%; opacity: 1;}
 }
 
+.btn {
+  display: inline-block;
+  border: solid white 2px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  margin: 3%;
+  p {
+    margin-top: 3px;
+    color: white;
+  }
+  .edit {
+    width: 50px;
+    color: white;
+    margin: auto;
+    margin-left: 100%;
+  }
+  &.back {
+    color: white;
+    margin-left: 7%;
+    margin-right: 70%;
+    font-size: 24px;
 
+    p {
+      margin-top: -3px;
+      margin-bottom: 0;
+    }
+  }
 
-// .box {
-//   width: 200px;
-//   height: 40px;
-//   border: solid black 3px;
-//   margin: 8px 0;
-// }
-
-// #submit {
-//   width: 208px;
-//   height: 40px;
-//   border: solid black 3px;
-//   margin: 10px 0;
-// }
-
-// #header {
-//   font-size: 50px;
-//   background-color: black;
-//   color: white;
-//   margin-top: 0;
-// }
-
-// #header h1 {
-//   margin: 0;
-//   color: white;
-// }
-
-
-
-// #header h1:hover {
-//   color: purple;
-// }
-
-// #footer {
-//   background-color: buttonface;
-//   padding: 8px;
-//   margin-top: 25px;
-//   font-size: 20px;
-// }
-
-// #notFound {
-//   width: 100%;
-//   background-color: black;
-//   color: white;
-//   font-size: 200px;
-//   margin-top: 30px;
-// }
-// h1 {
-//   margin: 0;
-// }
-
-
-
-
-
-
-// deleted index, check gulp repo
+}
 
 
 

@@ -190,3 +190,27 @@ body {
   to {
     margin-top: 10%;
     opacity: 1; } }
+
+.btn {
+  display: inline-block;
+  border: solid white 2px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  margin: 3%; }
+  .btn p {
+    margin-top: 3px;
+    color: white; }
+  .btn .edit {
+    width: 50px;
+    color: white;
+    margin: auto;
+    margin-left: 100%; }
+  .btn.back {
+    color: white;
+    margin-left: 7%;
+    margin-right: 70%;
+    font-size: 24px; }
+    .btn.back p {
+      margin-top: -3px;
+      margin-bottom: 0; }
